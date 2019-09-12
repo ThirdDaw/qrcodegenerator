@@ -121,5 +121,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/results')
 ]
 
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
