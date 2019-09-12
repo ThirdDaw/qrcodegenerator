@@ -1,0 +1,9 @@
+{% extends 'base-format.html' %}
+
+{% block title %}
+Third Format Page
+{% endblock %}
+
+{% block action %}
+<form action="{% url 'generate_qr_third_format_url' %}" method="get">
+    {% endblock %}

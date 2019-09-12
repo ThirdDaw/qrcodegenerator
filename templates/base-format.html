@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block info %}
+<div class="card-deck">
+    <div class="card ml-5 text-center">
+        {% block action %}
+        <form action="{% url 'get_image_url' %}" method="get">
+            {% endblock %}
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Info</label>
+                <input required type="search" class="form-control" id="exampleInputEmail1"
+                       placeholder="Enter your info" name="data" aria-label="Data">
+                <small id="emailHelp" class="form-text text-muted">This info won't be saved in any case, don't worry.
+                </small>
+            </div>
+            <button type="submit" class="btn btn-danger">Generate</button>
+        </form>
+    </div>
+    <div class="card mr-5 text-center">
+        <div class="card-body">
+            <h5 class="card-title">Your QR-code</h5>
+            {% if status %}
+            <img src="{% static image %}" width="600" height="600" alt='Push "Generate!"'>
+            {% else %}
+            <p>Your QR will appear right here. Just push "Generate"!</p>
+            {% endif %}
+            <br>
+             <a class="btn btn-primary" href="{% static image %}" download="QRCode.jpg">Save</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
