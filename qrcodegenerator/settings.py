@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -126,3 +127,5 @@ os.makedirs(STATIC_ROOT, exist_ok=True)
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
