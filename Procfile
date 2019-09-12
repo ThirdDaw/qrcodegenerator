@@ -1,1 +1,1 @@
-web: gunicorn qr.wsgi
+web: gunicorn qrcodegenerator.wsgi
