@@ -1,5 +1,6 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 
-def generateQR(request):
-    return HttpResponse("<h1>Hello</h1>")
+def redirect_qr(request):
+    return redirect('home_url', permanent=True)
